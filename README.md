@@ -4,6 +4,7 @@ My first real project in Python ever, sorry for the spaghetti code.
 
 ## Requirements
 
+Python 3.9+ or maybe 3.5+ should work fine too.
 You need these libraries for this bot to work. Use the package manager [pip](https://pip.pypa.io/en/stable/) to install them.
 
 ```bash
