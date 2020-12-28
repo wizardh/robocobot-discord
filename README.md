@@ -1,4 +1,4 @@
-# robocobot-line
+# robocobot-discord
 
 My first real project in Python ever, sorry for the spaghetti code.
 
