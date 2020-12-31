@@ -34,6 +34,7 @@ async def on_message(message):
         return
 
     msg = message.content
+    ori_msg = msg
     msg = msg.lower() # ignore the caps from user chat
     if any(word in msg for word in robo_greeting):
         await message.channel.send('Harobo~')
@@ -169,6 +170,32 @@ async def on_message(message):
                 embed = discord.Embed()
                 embed.set_image(url=doujin.cover)
                 await message.channel.send(doujin_info, embed = embed)
+                return
+
+    # Handles 'instagram url' command, post the media with 3rd party's API
+    if msg.startswith('https://www.instagram.com'):
+        insta = ApiLokal()
+        get_info = insta.instagram_media(ori_msg)
+        if(get_info):
+            cek_tipe = "gambar"
+            for tipe, content in get_info.items():
+                if tipe == "gambar":
+                    cek_tipe = "gambar"
+                elif tipe == "video":
+                    # video_url = content
+                    cek_tipe = "video"
+
+            if cek_tipe == "gambar": 
+                for gambar in get_info['gambar']:
+                    embed = discord.Embed()
+                    embed.set_image(url=gambar)
+                    await message.channel.send(get_info['text'], embed = embed)
+                return
+
+            elif cek_tipe == "video":
+                embed = discord.Embed()
+                embed.description = "Sorry, can't show you the video!" 
+                await message.channel.send(get_info['text'], embed = embed)
                 return
 
     # Handles 'twitter with image/video url' command, post the media with twitter API
