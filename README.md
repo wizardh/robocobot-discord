@@ -14,7 +14,7 @@ pip install hentai
 ```
 
 ## Contributing
-I don't know if anyone ever got interested with this, since there are many other codes that better than this. For the time being, I will ignore pull requests (if any to begin with).
+I don't know if anyone ever got interested with this, since there are many other codes that better than this. For the time being, I will ignore pull requests (if there's any to begin with).
 
 
 ## License
